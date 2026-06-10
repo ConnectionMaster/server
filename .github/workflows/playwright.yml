@@ -16,7 +16,7 @@ jobs:
     name: Playwright setup
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+    - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       with:
         persist-credentials: false
         submodules: true # for 3rdparty
@@ -24,7 +24,7 @@ jobs:
       uses: nextcloud-libraries/parse-package-engines-action@122ae05d4257008180a514e1ddeb0c1b9d094bdd # v0.1.0
       id: versions
     - name: Set up node
-      uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+      uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
       with:
         node-version: ${{ steps.versions.outputs.node-version }}
     - name: Set up npm
@@ -61,7 +61,7 @@ jobs:
         key: playwright-context-${{ github.run_id }}
         path: ./
 
-    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+    - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       if: steps.cache.outputs.cache-hit != 'true'
       with:
         persist-credentials: false
@@ -74,7 +74,7 @@ jobs:
 
     - name: Set up node
       if: steps.cache.outputs.cache-hit != 'true'
-      uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+      uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
       with:
         node-version: ${{ steps.versions.outputs.node-version }}
 
@@ -126,12 +126,12 @@ jobs:
         key: playwright-context-${{ github.run_id }}
         path: ./
 
-    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+    - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       if: steps.cache.outputs.cache-hit != 'true'
       with:
         persist-credentials: false
 
-    - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+    - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
       if: steps.cache.outputs.cache-hit != 'true'
       with:
         node-version: ${{ needs.playwright-tests.outputs.node-version }}
@@ -145,7 +145,7 @@ jobs:
       run: npm ci
 
     - name: Download blob reports from GitHub Actions Artifacts
-      uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
       with:
         path: all-blob-reports
         pattern: blob-report-*
