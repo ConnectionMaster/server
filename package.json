@@ -86,7 +86,7 @@
     "@types/dockerode": "^4.0.1",
     "@vitest/coverage-v8": "^4.1.10",
     "@vue/test-utils": "^2.4.6",
-    "@vue/tsconfig": "^0.9.0",
+    "@vue/tsconfig": "^0.9.1",
     "@zip.js/zip.js": "^2.8.26",
     "concurrently": "^10.0.3",
     "cypress": "^15.18.1",
